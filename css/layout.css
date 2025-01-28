@@ -1,0 +1,124 @@
+html{
+    margin: 0;
+    padding: 0;
+    margin: 0 10vw;
+
+    --primary-color: red;
+    --secondary-color : rgb(255, 212, 212);
+
+    --section-gap: 4em;
+    --border-radius: 5px;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1em 0.5em;
+    background-color: var(--primary-color);
+    width: fit-content;
+    border-radius: var(--border-radius);
+    color: white;
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header{
+    margin-top: var(--section-gap);
+    padding: 1em ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between ;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+}
+
+.logo{
+    font-size:4em;
+    font-family: arial;
+    font-weight: 700;
+    text-wrap: nowrap;
+}
+
+.logo strong{
+    color: var(--primary-color);
+    display: inline-block;
+    transform: scaleX(-1); 
+    direction: rtl; 
+}
+
+header nav{
+    display: flex;
+    gap: 2em;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+header nav a{
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    padding: 0 0.5em;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+}
+
+header nav a:hover{
+    color: var(--primary-color);
+}
+
+
+/*index*/
+
+section{
+margin-top: var(--section-gap);
+}
+
+.category_list_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    grid-template-rows: repeat(2, 20vh);
+    gap: 4px;
+    /* margin: 0 10vw; */
+}
+
+.category_list_container a{
+    display: flex;
+    flex-wrap: wrap;
+    width: clamp(fit-content, 1fr) ;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+
+    transition: 0.1s ease-in;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+
+    text-decoration: none;
+    text-align: center;
+}
+
+.category_list_container a:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* CARDS */
+
