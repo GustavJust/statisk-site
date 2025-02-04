@@ -1,5 +1,8 @@
 
-let productId = 1579;
+let productId = new URLSearchParams(window.location.search).get("id");
+
+let myCategory = new URLSearchParams(window.location.search).get("category");
+
 let productContainer = document.querySelector(".product");
 fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
 .then((response) => response.json())
@@ -7,7 +10,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
     productContainer.innerHTML = `
         <img
           src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp"
-          alt="Grey sweater"
+          alt="${data.description}"
         />
         <article>
           <h2>${data.productdisplayname}</h2>
@@ -24,7 +27,12 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
             <dd>${productId}</dd>
           </dl>
 
-          <h2> kr. ${data.price},- </h2>
+          <h2> 
+            ${data.discount > 0 
+              ? `<span class="old-price">DDK ${data.price},-</span>  <br>
+                 <span class="new-price">DDK ${(data.price * (1 - data.discount / 100)).toFixed(2)},-</span>` 
+              : `DDK ${data.price},-`}
+          </h2>
         </article>
         <article>
           <h2>${data.variantname}</h2>
@@ -56,3 +64,14 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
         </article>
     `;
 });
+
+
+const breadCrumbs = ` 
+<a href="index.html?sort=Categories">Categories</a>
+ > 
+ <a href="productlist.html?category=${myCategory}"> ${myCategory} </a>
+ >
+ <a href=""> ${productId} </a>
+  `
+
+document.querySelector("h1").innerHTML = breadCrumbs;
