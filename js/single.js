@@ -9,8 +9,8 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
 .then((data) => {
     productContainer.innerHTML = `
         <img
-          src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp"
-          alt="${data.description}"
+          src='https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp'
+          alt=""
         />
         <article>
           <h2>${data.productdisplayname}</h2>
