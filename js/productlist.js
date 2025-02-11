@@ -55,4 +55,11 @@ const breadCrumbs = `
  <a href="/productlist.html"> ${myCategory} </a> `
 
 document.querySelector("h1").innerHTML = breadCrumbs;
+
+const filterSort = ` 
+<a href="index.html?sort=Categories" class="button_1">Alle produkter</a>
+<a href="productlist.html" class="button_1">På Tilbud</a> `
+
+document.querySelector(".filters").innerHTML = filterSort;
+
 }
